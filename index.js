@@ -2,7 +2,7 @@
     window.JSChat = {}
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
-        setTimeout(() => {
+        return setTimeout(() => {
             if (document.getElementById("loading") !== null) return;
             var io;
             for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
@@ -68,5 +68,8 @@
             returnValue[returnValue.length - 1].activityPercentage = Number(n)
         }
         return returnValue
+    }
+    window.JSChat.stop = function(instanceId){
+        clearInterval(instanceId)
     }
 })()
