@@ -45,7 +45,7 @@
                 }
                 if ("<b>(message handled)</b>" === messageData.rawHtml) continue;
                 handler(messageData)
-                document.getElementsByClassName("content")[io].innerHTML = "<b>(bmessage handled)</b>"
+                document.getElementsByClassName("content")[io].innerHTML = "<b>(message handled)</b>"
 
             }
         }, 1000)
