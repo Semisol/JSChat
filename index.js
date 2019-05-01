@@ -2,7 +2,7 @@
     window.JSChat = {}
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
-        return setTimeout(() => {
+        return setInterval(() => {
             if (document.getElementById("loading") !== null) return;
             var io;
             for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
