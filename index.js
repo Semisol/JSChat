@@ -37,6 +37,11 @@
                 } else {
                     messageData.isRoomOwner = true
                 }
+                if ('<span class="deleted">(removed)</span>' === messageData.rawHtml){
+                    messageData.deleted = true
+                } else {
+                    messageData.deleted = false
+                }
                 messageData.deleteMessage = function(id) {
                     if (document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0] === undefined) {
                         document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("btn-close")[0].click();
