@@ -3,7 +3,7 @@
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
         setTimeout(() => {
-            if (document.getElementById("loading") === null) return;
+            if (document.getElementById("loading") !== null) return;
             var io;
             for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
                 var messageData = {}
@@ -54,7 +54,7 @@
         }, 1000)
     }
     window.JSChat.getUserList = function(){
-        if (document.getElementById("loading") === null) throw new Error("The chatroom is in the loading state.");
+        if (document.getElementById("loading") !== null) throw new Error("The chatroom is in the loading state.");
         var returnValue = []
         document.getElementById("present-users").getElementsByClassName("more")[0].click()
         for (var i = 0;i !== document.getElementById("present-users").querySelectorAll("li").length;i++){
@@ -62,6 +62,11 @@
             returnValue[returnValue.length] = {}
             returnValue[returnValue.length - 1].username = document.getElementById("present-users").querySelectorAll("li")[i].getElementsByClassName("user-gravatar32")[0].alt
             returnValue[returnValue.length - 1].userId = document.getElementById("present-users").querySelectorAll("li")[i].id.split("present-user-")[1]
+            var a = Number(document.getElementById("present-users").querySelectorAll("li")[i].style.opacity)
+            var num = a * 100;
+            var n = num.toFixed(2)
+            returnValue[returnValue.length - 1].activityPercentage = Number(n)
         }
+        return returnValue
     }
 })()
