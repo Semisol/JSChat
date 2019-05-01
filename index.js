@@ -3,6 +3,7 @@
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
         setTimeout(() => {
+            if (document.getElementById("loading") === null) return;
             var io;
             for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
                 var messageData = {}
@@ -39,6 +40,8 @@
                 messageData.deleteMessage = function(id) {
                     if (document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0] === undefined) {
                         document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("btn-close")[0].click();
+                        throw new Error("The message cannot be deleted")
+                        return
                     } else {
                         document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0].click()
                     }
@@ -49,5 +52,16 @@
 
             }
         }, 1000)
+    }
+    window.JSChat.getUserList = function(){
+        if (document.getElementById("loading") === null) throw new Error("The chatroom is in the loading state.");
+        var returnValue = []
+        document.getElementById("present-users").getElementsByClassName("more")[0].click()
+        for (var i = 0;i !== document.getElementById("present-users").querySelectorAll("li").length;i++){
+            if ("more" === document.getElementById("present-users").querySelectorAll("li")[i].className) continue;
+            returnValue[returnValue.length] = {}
+            returnValue[returnValue.length - 1].username = document.getElementById("present-users").querySelectorAll("li")[i].getElementsByClassName("user-gravatar32")[0].alt
+            returnValue[returnValue.length - 1].userId = document.getElementById("present-users").querySelectorAll("li")[i].id.split("present-user-")[1]
+        }
     }
 })()
