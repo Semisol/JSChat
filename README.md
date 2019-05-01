@@ -10,6 +10,7 @@ It works by parsing the chat DOM, and calling a handler for each message.
 The handler function has 1 argument, `ChatMessage`.
 ## Contents of a ChatMessage object
 ```none
+replyMessageId: A string with the id of the message replied. Blank if the message did not reply to any message. (String)
 node: The message node in the DOM
 username: The username of the sender of the message (String)
 rawHtml: The raw HTML contents of the message (String)
