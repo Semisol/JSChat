@@ -1,4 +1,4 @@
-<!-- thumbnail:  -->
+<!-- thumbnail: https://smileycreations15.com/files/images/jschat.png -->
 <!-- version: 2.0.0 -->
 <!-- tag: chatbot -->
 <!-- excerpt: JSChat is a library to quickly build a chatbot, that can run in a userscript. -->
@@ -7,7 +7,7 @@
 JSChat is a library to quickly build a chatbot, that can run in a userscript.
 ## How does it work?
 It works by parsing the chat DOM, and calling a handler for each message.
-The handler function has 1 argument, `ChatMessage`.
+The handler function has 1 argument, `JSChat.ChatMessage`.
 ## Contents of a ChatMessage object
 ```none
 replyMessageId: A string with the id of the message replied. Blank if the message did not reply to any message. (String)
@@ -49,5 +49,53 @@ window.JSChat.run((messageObject) => {
     // messageObject is the `ChatMessage` object for the message that is currently being handled.
 })
 ```
+## Functions and object types
+The functions can be found in `window.JSChat`.  
+Here is how to use the functions.  
+### `window.JSChat.run`
+Starts a chatbot instance
+
+Arguments:
+
+1. Handler (required)
+    A function to handle messages
+
+Return value:  
+Number  
+A number of the current chatbot instance.  
+
+### `window.JSChat.stop`
+Stops a chatbot instance
+
+Arguments:
+
+1. Instance ID
+    The instance ID of the chatbot (return value of `window.JSChat.run`)
+
+Return value:  
+undefined  
+### `window.JSChat.getUserList`
+Gets the current list of users in the room
+
+Arguments:
+
+None
+
+Return value:  
+An array containing `JSChat.ChatUserInstance` objects
+
+## `JSChat.ChatUserInstance`
+A user info object.  
+This is not located in `window.JSChat`, and is only a name given to this type of objects.  
+Object values:
+
+1. username (string)  
+    A string containing the display name of the user.
+2. activityPercentage (number)    
+    A percentage that is set to 99.99 when a user posts a message and decreases over time.  
+    This is the brightness percentage of the avatar in chatroom users sidebar.
+3. userId (string)    
+    A string that contains the chat user id (not main) of the user.
+
 ## License
 MIT
