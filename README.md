@@ -22,10 +22,11 @@ reply: Reply to the message that is currently being handled (Function) (argument
 deleteMessage: Delete a message from chat (Function) (arguments: messageId (a string that contains the message id of the message to delete))
 isModerator: A boolean indicating if the user is a moderator (Boolean)
 isRoomOwner: A boolean indicating if the user is a room owner (Boolean)
+deleted: A boolean indicating if the message is deleted (Boolean)
 ```
 ## FAQ
 ### Will a message be handled for the second time?
-No unless it is edited.
+No unless it is edited or deleted.
 ## Source Code
 Available at index.js
 ## Setting up
