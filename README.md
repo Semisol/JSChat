@@ -49,3 +49,5 @@ window.JSChat.run((messageObject) => {
     // messageObject is the `ChatMessage` object for the message that is currently being handled.
 })
 ```
+## License
+MIT
