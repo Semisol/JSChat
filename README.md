@@ -95,7 +95,7 @@ None
 Return value:
 undefined
 ## `window.JSChat.botUsername`
-Get th username of the chatbot
+Get the username of the chatbot
 
 Arguments:
 
@@ -103,6 +103,15 @@ None
 
 Return value:
 The username of the chatbot ("string")
+## `window.JSChat.botUserId`
+Get the chat user id of the chatbot
+
+Arguments:
+
+None
+
+Return value:
+The chat user id of the chatbot ("string")
 ## `JSChat.ChatUserInstance`
 A user info object.  
 This is not located in `window.JSChat`, and is only a name given to this type of objects.  
