@@ -26,7 +26,7 @@
                     document.getElementById("input").value = ":" + messageData.messageId + " " + message;
                     document.getElementById("sayit-button").click();
                 }
-                if (document.getElementsByClassName("content")[io].parentElement.classList.contains("pending")){
+                if (document.getElementsByClassName("content")[io].parentElement.classList.contains("pending")) {
                     messageData.pending = true
                 } else {
                     messageData.pending = false
@@ -42,7 +42,7 @@
                 } else {
                     messageData.isRoomOwner = true
                 }
-                if ('<span class="deleted">(removed)</span>' === messageData.rawHtml){
+                if ('<span class="deleted">(removed)</span>' === messageData.rawHtml) {
                     messageData.deleted = true
                 } else {
                     messageData.deleted = false
@@ -63,11 +63,11 @@
             }
         }, 1000)
     }
-    window.JSChat.getUserList = function(){
+    window.JSChat.getUserList = function() {
         if (document.getElementById("loading") !== null) throw new Error("The chatroom is in the loading state.");
         var returnValue = []
         document.getElementById("present-users").getElementsByClassName("more")[0].click()
-        for (var i = 0;i !== document.getElementById("present-users").querySelectorAll("li").length;i++){
+        for (var i = 0; i !== document.getElementById("present-users").querySelectorAll("li").length; i++) {
             if ("more" === document.getElementById("present-users").querySelectorAll("li")[i].className) continue;
             returnValue[returnValue.length] = {}
             returnValue[returnValue.length - 1].username = document.getElementById("present-users").querySelectorAll("li")[i].getElementsByClassName("user-gravatar32")[0].alt
@@ -79,7 +79,15 @@
         }
         return returnValue
     }
-    window.JSChat.stop = function(instanceId){
+    window.JSChat.stop = function(instanceId) {
         clearInterval(instanceId)
+    }
+    window.JSChat.retryMessageSend = function() {
+        var i;
+        for (i = 0; document.getElementsByTagName("a").length !== i; i++) {
+            if (document.getElementsByTagName("a")[i].innerHTML === "retry") {
+                document.getElementsByTagName("a")[i].click()
+            }
+        }
     }
 })()
