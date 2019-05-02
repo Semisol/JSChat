@@ -96,4 +96,7 @@
             }
         }
     }
+    window.JSChat.botUsername = function(){
+      return document.getElementById("active-user").getElementsByTagName("img")[0].alt
+    }
 })()
