@@ -26,6 +26,11 @@
                     document.getElementById("input").value = ":" + messageData.messageId + " " + message;
                     document.getElementById("sayit-button").click();
                 }
+                if (document.getElementsByClassName("content")[io].parentElement.classList.contains("pending")){
+                    messageData.pending = true
+                } else {
+                    messageData.pending = false
+                }
                 // moderator check
                 if (document.getElementsByClassName("content")[io].parentElement.parentElement.parentElement.getElementsByClassName("signature")[0].getElementsByClassName("moderator").length === 0) {
                     messageData.isModerator = false
