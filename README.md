@@ -43,7 +43,7 @@ Example userscript:
 // @description  {description here}
 // @author       You
 // @match        {the url of the chatroom}
-// @require      https://raw.githubusercontent.com/smileycreations15/JSChat/master/index.min.js
+// @require      https://raw.githubusercontent.com/smileycreations15/JSChat/master/index.js
 // ==/UserScript==
 
 window.JSChat.run((messageObject) => {
