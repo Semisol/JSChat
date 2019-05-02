@@ -2,6 +2,10 @@
     window.JSChat = {}
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
+        var io;
+        for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
+                document.getElementsByClassName("content")[io].innerHTML = "<b>(message handled)</b>"
+        }
         return setInterval(() => {
             if (document.getElementById("loading") !== null) return;
             var io;
