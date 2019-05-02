@@ -99,4 +99,7 @@
     window.JSChat.botUsername = function(){
       return document.getElementById("active-user").getElementsByTagName("img")[0].alt
     }
+    window.JSChat.botUserId = function() {
+      return a.className.split(" ").filter(function(a){return /(user\-)[0-9]+/g.test(a)})[0].split("-")[1]
+    }
 })()
