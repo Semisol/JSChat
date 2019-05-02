@@ -77,6 +77,7 @@
             var n = num.toFixed(2)
             returnValue[returnValue.length - 1].activityPercentage = Number(n)
         }
+        document.getElementById("present-users").getElementsByClassName("more")[0].click()
         return returnValue
     }
     window.JSChat.stop = function(instanceId) {
