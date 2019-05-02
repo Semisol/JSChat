@@ -7,6 +7,7 @@
                 document.getElementsByClassName("content")[io].innerHTML = "<b>(message handled)</b>"
         }
         return setInterval(() => {
+            JSChat.retryMessageSend()
             if (document.getElementById("loading") !== null) return;
             var io;
             for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
