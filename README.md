@@ -113,3 +113,5 @@ MIT
 
 1. Don't handle a message if `messageObject.pending` is true  
   A rehandling occurs when `messageObject.pending` switches to false.
+2. Do not run 2 instances in parallel on the same tab.
+  This will generate a race condition that makes the fastest one being the only instance to process.
