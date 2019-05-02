@@ -23,6 +23,7 @@ deleteMessage: Delete a message from chat (Function) (arguments: messageId (a st
 isModerator: A boolean indicating if the user is a moderator (Boolean)
 isRoomOwner: A boolean indicating if the user is a room owner (Boolean)
 deleted: A boolean indicating if the message is deleted (Boolean)
+pending: A boolean indicating if the message is currently not sent to everyone.
 ```
 ## FAQ
 ### Will a message be handled for the second time?
@@ -84,7 +85,15 @@ None
 
 Return value:  
 An array containing `JSChat.ChatUserInstance` objects
+## `window.JSChat.retryMessageSend`
+Retry sending all messages if not sent
 
+Arguments:
+
+None
+
+Return value:
+undefined
 ## `JSChat.ChatUserInstance`
 A user info object.  
 This is not located in `window.JSChat`, and is only a name given to this type of objects.  
@@ -100,3 +109,7 @@ Object values:
 
 ## License
 MIT
+## Recommendations
+
+1. Don't handle a message if `messageObject.pending` is true  
+  A rehandling occurs when `messageObject.pending` switches to false.
