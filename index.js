@@ -1,10 +1,23 @@
 (function() {
     window.JSChat = {}
+    window.JSChat.deleteMessage = function(id) {
+        if (document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0] === undefined) {
+            document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("btn-close")[0].click();
+            throw new Error("The message cannot be deleted")
+            return
+        } else {
+            document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0].click()
+        }
+    }
+    window.JSChat.send = function(message) {
+        document.getElementById("input").value = message;
+        document.getElementById("sayit-button").click();
+    }
     window.JSChat.run = (handler) => {
         if (typeof handler !== "function") throw new TypeError("The handler is not a function.");
         var io;
         for (io = 0; io !== document.getElementsByClassName("content").length; io++) {
-                document.getElementsByClassName("content")[io].innerHTML = "<b>(message handled)</b>"
+            document.getElementsByClassName("content")[io].innerHTML = "<b>(message handled)</b>"
         }
         return setInterval(() => {
             JSChat.retryMessageSend()
@@ -96,10 +109,12 @@
             }
         }
     }
-    window.JSChat.botUsername = function(){
-      return document.getElementById("active-user").getElementsByTagName("img")[0].alt
+    window.JSChat.botUsername = function() {
+        return document.getElementById("active-user").getElementsByTagName("img")[0].alt
     }
     window.JSChat.botUserId = function() {
-      return document.getElementById("active-user").className.split(" ").filter(function(a){return /(user\-)[0-9]+/g.test(a)})[0].split("-")[1]
+        return document.getElementById("active-user").className.split(" ").filter(function(a) {
+            return /(user\-)[0-9]+/g.test(a)
+        })[0].split("-")[1]
     }
 })()
