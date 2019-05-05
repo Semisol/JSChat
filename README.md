@@ -103,6 +103,33 @@ None
 
 Return value:
 The username of the chatbot ("string")
+## `window.JSChat.retryMessageSend`
+Retry sending all messages if not sent
+
+Arguments:
+
+None
+
+Return value:
+undefined
+## `window.JSChat.deleteMessage`
+Delete a message
+
+Arguments:
+
+1. Message ID (string)
+
+Return value:
+undefined
+## `window.JSChat.send`
+Send a message
+
+Arguments:
+
+1. Message contents (string)
+
+Return value:
+undefined
 ## `window.JSChat.botUserId`
 Get the chat user id of the chatbot
 
@@ -133,3 +160,5 @@ MIT
   A rehandling occurs when `messageObject.pending` switches to false.
 2. Do not run 2 instances in parallel on the same tab.  
   This will generate a race condition that makes the fastest one being the only instance to process.
+3. Don't handle messages `messageObject.deleted` is true  
+  The message has been deleted, and there is no meaning to handle it.
