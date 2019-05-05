@@ -1,6 +1,7 @@
 (function() {
     window.JSChat = {}
     window.JSChat.deleteMessage = function(id) {
+        document.getElementById("message-" + id).getElementsByClassName("action-link")[0].click();
         if (document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0] === undefined) {
             document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("btn-close")[0].click();
             throw new Error("The message cannot be deleted")
@@ -66,6 +67,7 @@
                     messageData.deleted = false
                 }
                 messageData.deleteMessage = function(id) {
+                    document.getElementById("message-" + id).getElementsByClassName("action-link")[0].click();
                     if (document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("delete")[0] === undefined) {
                         document.getElementById("message-" + id).getElementsByClassName("popup")[0].getElementsByClassName("btn-close")[0].click();
                         throw new Error("The message cannot be deleted")
