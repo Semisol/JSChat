@@ -34,8 +34,7 @@
     }
     window.JSChat.createMention = function (username) {
         var user = username
-        user.replace(/ /g, "")
-        return "@" + user
+        return "@" + user.replace(/ /g, "")
     }
     window.JSChat.send = function (message) {
         document.getElementById("input")
