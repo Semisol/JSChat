@@ -16,21 +16,21 @@
     }
     window.JSChat.escapeMarkdown = function (string) {
         var replacements = [
-  [ /\*/g, '\\*' ],
-  [ /#/g, '\\#' ],
-  [ /\//g, '\\/' ],
-  [ /\(/g, '\\(' ],
-  [ /\)/g, '\\)' ],
-  [ /\[/g, '\\[' ],
-  [ /\]/g, '\\]' ],
-  [ /\</g, '&lt;' ],
-  [ /\>/g, '&gt;' ],
-  [ /_/g, '\\_' ] ]
+             [ /\*/g, '\\*' ],
+             [ /#/g, '\\#' ],
+             [ /\//g, '\\/' ],
+             [ /\(/g, '\\(' ],
+             [ /\)/g, '\\)' ],
+             [ /\[/g, '\\[' ],
+             [ /\]/g, '\\]' ],
+             [ /\</g, '&lt;' ],
+             [ /\>/g, '&gt;' ],
+             [ /_/g, '\\_' ] ]
         return replacements.reduce(
-    function(string, replacement) {
-      return string.replace(replacement[0], replacement[1])
-    },
-    string)
+            function(string, replacement) {
+                return string.replace(replacement[0], replacement[1])
+            },
+        string)
     }
     window.JSChat.createMention = function (username) {
         var user = username
