@@ -35,7 +35,7 @@
     window.JSChat.createMention = function (username) {
         var user = username
         user.replace(/ /g, "")
-        return "@" + window.JSChat.escapeMarkdown(user)
+        return "@" + user
     }
     window.JSChat.send = function (message) {
         document.getElementById("input")
