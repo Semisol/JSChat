@@ -2,6 +2,7 @@
 <!-- version: 2.0.0 -->
 <!-- tag: chatbot -->
 <!-- excerpt: JSChat is a library to quickly build a chatbot, that can run in a userscript. -->
+# This project is now abandoned. No support is given, but it still might work.
 
 ## What is JSChat?
 JSChat is a library to quickly build a chatbot, that can run in a userscript.
